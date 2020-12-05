@@ -1,3 +1,5 @@
+import time
+
 def parsePositions(criteria):
   hyphenIndex = criteria.find('-')
   spaceIndex = criteria.find(' ')
@@ -41,6 +43,8 @@ def getNumPasswordsValid(listPasswordsCriteria):
   return (passwordsValidCount, passwordsValidPos)
 
 if __name__ == "__main__":
+  startTime = time.time()
+
   with open('inputFiles/day2.txt', 'r') as inputFile:
     inputText = inputFile.read()
 
@@ -50,3 +54,4 @@ if __name__ == "__main__":
   print("Policy #1:", counts[0])
   print("Policy #2:", counts[1])
   
+  print(f"--- {time.time() - startTime} seconds ---")
