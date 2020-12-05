@@ -71,7 +71,13 @@ def getNumValidPassports(inputText):
     if (len(passportMap) != len(reqFields)): continue
     else: numValidPassports += 1
 
-    passportValid = validateDate(passportMap['byr'], 1920, 2002) and validateDate(passportMap['iyr'], 2010, 2020) and validateDate(passportMap['eyr'], 2020, 2030) and validateHeight(passportMap['hgt']) and validateHex(passportMap['hcl']) and validateColor(passportMap['ecl']) and validateId(passportMap['pid'])
+    passportValid = (validateDate(passportMap['byr'], 1920, 2002) 
+      and validateDate(passportMap['iyr'], 2010, 2020) 
+      and validateDate(passportMap['eyr'], 2020, 2030) 
+      and validateHeight(passportMap['hgt']) 
+      and validateHex(passportMap['hcl']) 
+      and validateColor(passportMap['ecl']) 
+      and validateId(passportMap['pid']))
 
     if (passportValid): numValidPassportsStrict += 1
 
