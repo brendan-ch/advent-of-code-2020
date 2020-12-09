@@ -1,6 +1,6 @@
 import time
 
-def constructRuleDict(rule):
+def constructRuleDict(rule: str):
   """Construct a dictionary containing bag color and the bags that it can contain"""
   ruleArgs = rule.split(' ')
 
@@ -19,7 +19,7 @@ def constructRuleDict(rule):
 
   return ruleDict
 
-def searchForOptions(bagColor, ruleDicts):
+def searchForOptions(bagColor: str, ruleDicts: list):
   """Search the rule to see if it contains bagColor. Returns list of bags that match the bagColor."""
   matchingRuleDicts = []
 
@@ -40,13 +40,13 @@ def searchForOptions(bagColor, ruleDicts):
 
   return matchingRuleDicts
 
-def getNumBagColors(bagColor, ruleDicts):
+def getNumBagColors(bagColor: str, ruleDicts: list):
   """Get the number of bag colors that can contain at least one bagColor."""
   matchingRuleDicts = searchForOptions(bagColor, ruleDicts)
 
   return len(matchingRuleDicts)
 
-def getNumBagsReq(bagColor, ruleDicts):
+def getNumBagsReq(bagColor: str, ruleDicts: list):
   """Get the number of required bags inside a single bag."""
   numBagsReq = 0
 
