@@ -1,6 +1,6 @@
 import time
 
-def runProgram(listInstructions):
+def runProgram(listInstructions: list):
   accumulator = 0
   executedInstructions = []  # track indices of executed and current instruction
   terminatedProperly = False
@@ -26,7 +26,7 @@ def runProgram(listInstructions):
 
   return (accumulator, executedInstructions, terminatedProperly)  # we'll need the executed instructions to fix the program
 
-def fixProgram(listInstructions, executedInstructions):
+def fixProgram(listInstructions: list, executedInstructions: list):
   fixedInstructions = list(listInstructions)
   reversedList = list(executedInstructions)
   reversedList.reverse()
