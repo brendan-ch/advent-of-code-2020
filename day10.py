@@ -1,3 +1,5 @@
+import time
+
 def getDifferences(inputList: list):
   listAdapters = inputList[:]
   listAdapters.sort()
@@ -49,11 +51,10 @@ def getNumWays(inputList: list):
   for i in consecutiveNums:
     numWays *= (2 ** (len(i) - 2)) - max(0, -9 + (len(i) * 2))
 
-  print(consecutiveNums)
-
   return numWays
 
 if __name__ == "__main__":
+  startTime = time.time()
   with open('inputFiles/day10.txt', 'r') as inputFile:
     inputText = inputFile.read()
 
@@ -67,3 +68,5 @@ if __name__ == "__main__":
 
   print("Multiplied differences:", multiple)
   print("Number of ways:", numWays)
+
+  print(f"--- {time.time() - startTime} seconds ---")
