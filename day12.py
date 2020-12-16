@@ -55,7 +55,6 @@ def getManhattanDistWaypoint(instructions: list):
     90: lambda distCoords: [-distCoords[1], distCoords[0]],
     180: lambda distCoords: [-distCoords[0], -distCoords[1]],
     270: lambda distCoords: [distCoords[1], -distCoords[0]],
-    360: lambda distCoords: distCoords
   }
 
   for instruction in instructions:
@@ -63,15 +62,12 @@ def getManhattanDistWaypoint(instructions: list):
     if (instruction[0] in actions): # change waypoint coords
       waypointCoords = actions[instruction[0]](value, waypointCoords)
     elif (instruction[0] == 'F'): # change ship distance
-      # distCoords = getDistCoords(shipCoords, waypointCoords)
       shipCoords[0] += waypointCoords[0] * value # multiply coords by value
       shipCoords[1] += waypointCoords[1] * value
     elif (instruction[0] == 'L'): # rotate counterclockwise
-      # distCoords = getDistCoords(shipCoords, waypointCoords)
       waypointCoords = rotateCoords[getBaseDirection(value)](waypointCoords)
     elif (instruction[0] == 'R'):
-      # distCoords = getDistCoords(shipCoords, waypointCoords)
-      waypointCoords = rotateCoords[360 - getBaseDirection(value)](waypointCoords)
+      waypointCoords = rotateCoords[360 - getBaseDirection(value) if getBaseDirection(value) != 0 else 0](waypointCoords)
 
   return sum(getDistCoords(shipCoords, [0, 0]))
 
